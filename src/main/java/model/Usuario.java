@@ -25,12 +25,7 @@ public class Usuario {
 	private List<Conta> contas;
 	
 	public Usuario() {
-		this.id = null;
-		this.login = null;
-		this.password = null;
-		this.name = null;
-		this.cpf = null;
-		this.phone = null;
+		this(null, null, null, null);
 	}
 	
 	// Constructor
