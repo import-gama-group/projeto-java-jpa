@@ -1,62 +1,54 @@
 package app;
 
+import java.util.List;
+
 import dao.UsuarioRepository;
 import model.Usuario;
 
+
+
 public class SistemaUsuario {
-	static void criarUsuario() {
+	
+	static UsuarioRepository repository = new UsuarioRepository();
+	public static void main(String[] args) {
+		save();
+		update();
+		list();
+	}
+	static void save() {
+		Usuario usuario = new Usuario();
+		usuario.setName("Maycon Leite");;
+		usuario.setCpf("999.999.999-99");
+		usuario.setLogin("mayconLeite");
+		usuario.setPhone("1166666666");
+		usuario.setPassword("123456");
+		repository.save(usuario);
+	}
+	static void update() {
+		Object idUsuarioQueSalvouNaBase = 1; //mudar
 		
-		//criar usuario
-		//contas
-		//planos de contas padrao
+		Usuario usuario = repository.find(idUsuarioQueSalvouNaBase);
 		
+		if(usuario!=null) {
+			usuario.setName("Maycon Leite");;
+			usuario.setCpf("999.999.999-99");
+			usuario.setLogin("mayconLeite");
+			usuario.setPhone("1166666666");
+			usuario.setPassword("123456");
+			repository.update(usuario);
+		}
 	}
 	
-	public static void main(String[] args) {
+	static void list() {
+		System.out.println("LISTANDO USUARIO");
 		
-		UsuarioRepository repository = new UsuarioRepository();
+		List<Usuario> usuario = repository.list();
 		
-		Usuario us = new Usuario();
-	/*	
-		us.setCpf("12345678912");
-		us.setLogin("123");
-		us.setName("Fulano");
-		us.setPassword("1234");
-		us.setPhone("99999999");*/
-		
-		Usuario u2 = new Usuario();
-		
-		u2.setCpf("154321646");
-		u2.setLogin("1325");
-		u2.setName("Beltrano");
-		u2.setPassword("18665");
-		u2.setPhone("912312135");
-			
-		
-		repository.delete(3);
-		repository.delete(4);
-		
-		
-		
-		
-		
-		/*
-		repository.update(carro);
-		
-		repository.delete(1);
-		
-		List<Carro> carros = repository.list();
-		
-		if(carros!=null) {
-			for(Carro c: carros) {
-				System.out.println(c);
-			}
+		for(Usuario c: usuario) {
+			System.out.println(c);
 		}
-		
-		
-		Carro selecionado = repository.find(3);
-		
-		System.out.println("Selecionado: " + selecionado);
-		*/
 	}
+	
+	
+	
 }
