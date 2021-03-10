@@ -22,5 +22,11 @@ public class UsuarioRepository extends AbstractRepository<Usuario> implements Re
 		contaBanco.setTipo(Tipo.BANCO);
 		contaBanco.setUsuario(usuario);
 		contaRepository.save(contaBanco);
+		
+		Conta contaCredito = new Conta();
+		contaCredito.setNumero(4567897);
+		contaCredito.setTipo(Tipo.CREDITO);
+		contaCredito.setUsuario(usuario);
+		contaRepository.save(contaCredito);
 	}
 }

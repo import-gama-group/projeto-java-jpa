@@ -41,6 +41,7 @@ public class SistemaUsuario {
 
 		repository.save(user3);
 		
+		/*
 		Usuario userToUpdate = repository.find(3);
 		userToUpdate.setName("Mudou o Nome");;
 		userToUpdate.setCpf("777.888.777-77");
@@ -49,6 +50,7 @@ public class SistemaUsuario {
 		userToUpdate.setPassword("novissimasenha");
 
 		repository.update(userToUpdate);
+		*/
 		
 		/*
 		Conta conta2 = new Conta();

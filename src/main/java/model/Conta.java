@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name = "tab_conta")
 public class Conta {
@@ -18,6 +19,7 @@ public class Conta {
 	private Integer numero;
 	private Double saldo;
 	private Tipo tipo;
+	
 	
 	public Conta() {
 		this.id = null;
