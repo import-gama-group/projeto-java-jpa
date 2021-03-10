@@ -18,6 +18,7 @@ public class AbstractRepository <E> {
 				   ((ParameterizedType)getClass().getGenericSuperclass())
 				      .getActualTypeArguments()[0];
 	}
+	
 	public E find(Object id) {
 		Object entity = em.find(entityClass, id);
 		return (E) entity;
@@ -53,23 +54,4 @@ public class AbstractRepository <E> {
 		return query.getResultList();
 		
 	}
-	
-//	public void save(E e) {
-//		em.getTransaction().begin();
-//		em.persist(e);
-//		em.getTransaction().commit();
-//	}
-//	public void update(E e) {
-//		em.getTransaction().begin();
-//		em.merge(e);
-//		em.getTransaction().commit();
-//	}
-//	
-//	public void delete(Integer id) {
-//		em.getTransaction().begin();
-//		Object object = em.find(Usuario.class, id);
-//		em.remove(object);   
-//		em.getTransaction().commit();
-//	}
-
 }
