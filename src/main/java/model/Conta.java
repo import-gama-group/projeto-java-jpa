@@ -22,11 +22,7 @@ public class Conta {
 	
 	
 	public Conta() {
-		this.id = null;
-		this.usuario = null;
-		this.numero = null;
-		this.saldo = 0.0;
-		this.tipo = null;
+		this(null, null, null, 0.0, null );
 	}
 	// Constructor
 	public Conta(Usuario user, Integer id, Integer numero, Double saldo, Tipo tipo) {

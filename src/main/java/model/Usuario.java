@@ -1,8 +1,8 @@
 package model;
 
-
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,7 +21,7 @@ public class Usuario {
 	private String name;
 	private String cpf;
 	private String phone;
-	@OneToMany(mappedBy = "usuario")
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.PERSIST)
 	private List<Conta> contas;
 	
 	public Usuario() {
@@ -40,8 +40,6 @@ public class Usuario {
 		this.login = login;
 		this.password = password;
 		this.name = name;
-		// TODO Conta contaCredito = new Conta();
-		// TODO Conta contaCredito = new Conta();
 	}
 	
 	// Getter and Setters
@@ -80,5 +78,14 @@ public class Usuario {
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public List<Conta> getContas() {
+		return contas;
+	}
+
+	public void setContas(List<Conta> contas) {
+		this.contas = contas;
 	}	
+	
 }
