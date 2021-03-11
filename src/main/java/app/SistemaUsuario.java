@@ -7,36 +7,38 @@ import dao.UsuarioRepository;
 import model.Conta;
 import model.Conta.Tipo;
 import model.Usuario;
+import utils.Formatador;
+
 
 public class SistemaUsuario {
 	
 	static UsuarioRepository repository = new UsuarioRepository();
 	static ContaRepository contaRepository = new ContaRepository();
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
 		Usuario user1 = new Usuario();
 		user1.setName("Maycon Leite");;
-		user1.setCpf("999.999.999-99");
+		user1.setCpf(Formatador.formatadorCpf("33468456515"));
 		user1.setLogin("mayconLeite");
-		user1.setPhone("1166666666");
+		user1.setPhone(Formatador.formatadorPhone("34654816123"));
 		user1.setPassword("123456");
 
 		repository.save(user1);
 
 		Usuario user2 = new Usuario();
 		user2.setName("Ricardo Montes");;
-		user2.setCpf("888.888.888-88");
+		user2.setCpf(Formatador.formatadorCpf("89865623588"));
 		user2.setLogin("ricardo");
-		user2.setPhone("999999999");
+		user2.setPhone(Formatador.formatadorPhone("12112456789"));
 		user2.setPassword("root");
 
 		repository.save(user2);
 		
 		Usuario user3 = new Usuario();
 		user3.setName("Temporario");;
-		user3.setCpf("898.656.235-88");
+		user3.setCpf(Formatador.formatadorCpf("89865623588"));
 		user3.setLogin("criativo");
-		user3.setPhone("12345678910");
+		user3.setPhone(Formatador.formatadorPhone("12112456789"));
 		user3.setPassword("novasenha");
 
 		repository.save(user3);
