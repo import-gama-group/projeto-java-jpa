@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,6 +20,9 @@ public class Usuario {
 	private String login;
 	private String password;
 	private String name;
+	@OneToOne(mappedBy = "usuario" , cascade = CascadeType.PERSIST)
+	//@JoinColumn (name = "usuario_id")
+	private PlanoConta plano;
 	private String cpf;
 	private String phone;
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.PERSIST)
@@ -27,7 +31,6 @@ public class Usuario {
 	public Usuario() {
 		this(null, null, null, null);
 	}
-	
 	// Constructor
 	public Usuario(Integer id, String login, String password, String name) {
 		super();
@@ -36,7 +39,6 @@ public class Usuario {
 		this.password = password;
 		this.name = name;
 	}
-	
 	// Getter and Setters
 	public Integer getId() {
 		return id;

@@ -3,15 +3,18 @@ package app;
 import java.util.List;
 
 import dao.ContaRepository;
+import dao.PlanoContaRepository;
 import dao.UsuarioRepository;
 import model.Conta;
 import model.Conta.Tipo;
+import model.PlanoConta;
+import model.PlanoConta.TipoMovimento;
 import model.Usuario;
 import utils.Formatador;
 
 
 public class SistemaUsuario {
-	
+	static PlanoContaRepository planoRepository = new PlanoContaRepository();
 	static UsuarioRepository repository = new UsuarioRepository();
 	static ContaRepository contaRepository = new ContaRepository();
 	public static void main(String[] args) throws Exception {
@@ -42,6 +45,18 @@ public class SistemaUsuario {
 		user3.setPassword("novasenha");
 
 		repository.save(user3);
+		
+		
+		PlanoConta plano1 = new PlanoConta();
+		plano1.setUsuario(user3);
+		plano1.setPadrao(true);
+		plano1.setNome(TipoMovimento.R);
+		planoRepository.save(plano1);
+		
+		
+		
+		
+		
 		
 		/*
 		Usuario userToUpdate = repository.find(3);
