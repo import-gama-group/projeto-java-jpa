@@ -47,11 +47,11 @@ public class SistemaUsuario {
 		repository.save(user3);
 		
 		
-		PlanoConta plano1 = new PlanoConta();
-		plano1.setUsuario(user3);
-		plano1.setPadrao(true);
-		plano1.setNome(TipoMovimento.R);
-		planoRepository.save(plano1);
+		/*
+		 * PlanoConta plano1 = new PlanoConta(); plano1.setUsuario(user3);
+		 * plano1.setPadrao(true); plano1.setNome(TipoMovimento.R);
+		 * planoRepository.save(plano1);
+		 */
 		
 		
 		

@@ -20,8 +20,7 @@ public class Usuario {
 	private String login;
 	private String password;
 	private String name;
-	@OneToOne(mappedBy = "usuario" , cascade = CascadeType.PERSIST)
-	//@JoinColumn (name = "usuario_id")
+	@OneToOne//(mappedBy = "usuario", cascade = CascadeType.PERSIST)
 	private PlanoConta plano;
 	private String cpf;
 	private String phone;
@@ -40,8 +39,15 @@ public class Usuario {
 		this.name = name;
 	}
 	// Getter and Setters
+	
 	public Integer getId() {
 		return id;
+	}
+	public PlanoConta getPlano() {
+		return plano;
+	}
+	public void setPlano(PlanoConta plano) {
+		this.plano = plano;
 	}
 	public void setId(Integer id) {
 		this.id = id;
