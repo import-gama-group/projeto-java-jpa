@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -15,7 +14,6 @@ public class PlanoConta {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@OneToOne 
-	//@JoinColumn (name = "plano_id")
 	private Usuario usuario;
 	private TipoMovimento nome; 
 	private Boolean padrao;
@@ -24,7 +22,7 @@ public class PlanoConta {
 	public PlanoConta() {
 		this(null, null, null, null);
 	}
-
+	// Contructor
 	public PlanoConta(Integer id, Usuario usuario, TipoMovimento nome, Boolean padrao) {
 		super();
 		this.id = id;
@@ -32,16 +30,13 @@ public class PlanoConta {
 		this.nome = nome;
 		this.padrao = padrao;
 	}
-
-
+	// Getter and Setters
 	public TipoMovimento getNome() {
 		return nome;
 	}
-
 	public void setNome(TipoMovimento nome) {
 		this.nome = nome;
 	}
-
 	public Integer getId() {
 		return id;
 	}
@@ -61,14 +56,11 @@ public class PlanoConta {
 		this.padrao = padrao;
 	}
 
-
-	
+	// ENUM
 	public enum TipoMovimento{
 		R,
 		D, 
 		TU,
 		TC
-	}
-
-	
+	}	
 }

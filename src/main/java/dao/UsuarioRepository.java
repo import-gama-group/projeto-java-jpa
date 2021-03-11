@@ -11,7 +11,7 @@ import model.PlanoConta;
 public class UsuarioRepository extends AbstractRepository<Usuario> implements Repository<Usuario>{
 	
 	public void save(Usuario usuario) {
-		
+		// Criando duas contas com tipos diferentes para o Usuario
 		List<Conta> contas = new ArrayList<Conta>();
 		Conta contaBanco = new Conta();
 		contaBanco.setNumero(12345678);
@@ -29,7 +29,7 @@ public class UsuarioRepository extends AbstractRepository<Usuario> implements Re
 		usuario.setContas(contas);
 		
 		super.save(usuario);
-
+		// Criando um plano de conta para o Usuario
 		PlanoContaRepository planoRepository = new PlanoContaRepository();
 
 		PlanoConta plano1 = new PlanoConta();

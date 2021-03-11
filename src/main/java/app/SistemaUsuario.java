@@ -5,13 +5,8 @@ import java.util.List;
 import dao.ContaRepository;
 import dao.PlanoContaRepository;
 import dao.UsuarioRepository;
-import model.Conta;
-import model.Conta.Tipo;
-import model.PlanoConta;
-import model.PlanoConta.TipoMovimento;
 import model.Usuario;
 import utils.Formatador;
-
 
 public class SistemaUsuario {
 	static PlanoContaRepository planoRepository = new PlanoContaRepository();
@@ -45,37 +40,6 @@ public class SistemaUsuario {
 		user3.setPassword("novasenha");
 
 		repository.save(user3);
-		
-		
-		/*
-		 * PlanoConta plano1 = new PlanoConta(); plano1.setUsuario(user3);
-		 * plano1.setPadrao(true); plano1.setNome(TipoMovimento.R);
-		 * planoRepository.save(plano1);
-		 */
-		
-		
-		
-		
-		
-		
-		/*
-		Usuario userToUpdate = repository.find(3);
-		userToUpdate.setName("Mudou o Nome");;
-		userToUpdate.setCpf("777.888.777-77");
-		userToUpdate.setLogin("substituto");
-		userToUpdate.setPhone("78956432815");
-		userToUpdate.setPassword("novissimasenha");
-
-		repository.update(userToUpdate);
-		*/
-		
-		/*
-		Conta conta2 = new Conta();
-		conta2.setNumero(12345678);
-		conta2.setTipo(Tipo.BANCO);
-		conta2.setUsuario(user1);
-		contaRepository.save(conta2);
-		*/
 
 		//list();
 		/*

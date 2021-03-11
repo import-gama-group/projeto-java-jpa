@@ -20,7 +20,7 @@ public class Usuario {
 	private String login;
 	private String password;
 	private String name;
-	@OneToOne//(mappedBy = "usuario", cascade = CascadeType.PERSIST)
+	@OneToOne
 	private PlanoConta plano;
 	private String cpf;
 	private String phone;
