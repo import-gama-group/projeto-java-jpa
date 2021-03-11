@@ -6,6 +6,7 @@ import java.util.List;
 import model.Conta;
 import model.Usuario;
 import model.Conta.Tipo;
+import model.PlanoConta.TipoMovimento;
 import model.PlanoConta;
 
 public class UsuarioRepository extends AbstractRepository<Usuario> implements Repository<Usuario>{
@@ -29,14 +30,35 @@ public class UsuarioRepository extends AbstractRepository<Usuario> implements Re
 		usuario.setContas(contas);
 		
 		super.save(usuario);
-		// Criando um plano de conta para o Usuario
-		PlanoContaRepository planoRepository = new PlanoContaRepository();
+		// Criando 3 planos de conta para o Usuario
+		List<PlanoConta> planos = new ArrayList<PlanoConta>();
 
 		PlanoConta plano1 = new PlanoConta();
 		plano1.setUsuario(usuario);
-		planoRepository.save(plano1);
+		plano1.setTipo(TipoMovimento.R);
+		plano1.setPadrao(true);
 		
-		usuario.setPlano(plano1);
+		PlanoConta plano2 = new PlanoConta();
+		plano2.setUsuario(usuario);
+		plano2.setTipo(TipoMovimento.D);
+		plano2.setPadrao(true);		
+		
+		PlanoConta plano3 = new PlanoConta();
+		plano3.setUsuario(usuario);
+		plano3.setTipo(TipoMovimento.TU);
+		plano3.setPadrao(true);
+		
+		PlanoConta plano4 = new PlanoConta();
+		plano4.setUsuario(usuario);
+		plano4.setTipo(TipoMovimento.TC);
+		plano4.setPadrao(true);
+		
+		planos.add(plano1);
+		planos.add(plano2);
+		planos.add(plano3);
+		planos.add(plano4);
+		
+		usuario.setPlanos(planos);
 		
 		super.save(usuario);
 	}

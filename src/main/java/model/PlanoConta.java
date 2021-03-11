@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -13,29 +14,30 @@ public class PlanoConta {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@OneToOne 
+	@ManyToOne 
 	private Usuario usuario;
-	private TipoMovimento nome; 
+	private TipoMovimento tipo; 
 	private Boolean padrao;
 	
 	
 	public PlanoConta() {
 		this(null, null, null, null);
 	}
-	// Contructor
+	// Constructor
 	public PlanoConta(Integer id, Usuario usuario, TipoMovimento nome, Boolean padrao) {
 		super();
 		this.id = id;
 		this.usuario = usuario;
-		this.nome = nome;
+		this.tipo = nome;
 		this.padrao = padrao;
 	}
 	// Getter and Setters
-	public TipoMovimento getNome() {
-		return nome;
+	
+	public TipoMovimento getTipo() {
+		return tipo;
 	}
-	public void setNome(TipoMovimento nome) {
-		this.nome = nome;
+	public void setTipo(TipoMovimento tipo) {
+		this.tipo = tipo;
 	}
 	public Integer getId() {
 		return id;
@@ -62,5 +64,5 @@ public class PlanoConta {
 		D, 
 		TU,
 		TC
-	}	
+	}
 }

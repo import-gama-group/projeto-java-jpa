@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,8 +19,8 @@ public class Usuario {
 	private String login;
 	private String password;
 	private String name;
-	@OneToOne
-	private PlanoConta plano;
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.PERSIST)
+	private List<PlanoConta> planos;
 	private String cpf;
 	private String phone;
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.PERSIST)
@@ -39,18 +38,17 @@ public class Usuario {
 		this.name = name;
 	}
 	// Getter and Setters
-	
-	public Integer getId() {
-		return id;
+	public List<PlanoConta> getPlanos() {
+		return planos;
 	}
-	public PlanoConta getPlano() {
-		return plano;
-	}
-	public void setPlano(PlanoConta plano) {
-		this.plano = plano;
+	public void setPlanos(List<PlanoConta> planos) {
+		this.planos = planos;
 	}
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	public Integer getId() {
+		return id;
 	}
 	public String getLogin() {
 		return login;
