@@ -20,6 +20,7 @@ public class PlanoConta {
 	private Integer id;
 	@ManyToOne 
 	private Usuario usuario;
+	private String nome;
 	//@ENUMARATION STRING
 	//  STRING NOME
 	private TipoMovimento tipo; 
@@ -28,17 +29,24 @@ public class PlanoConta {
 	//private List<Lancamento> lancamentos;
 	
 	public PlanoConta() {
-		this(null, null, null, false);
+		this(null, null, null, null, false);
 	}
 	// Constructor
-	public PlanoConta(Integer id, Usuario usuario, TipoMovimento nome, Boolean padrao) {
+	public PlanoConta(Integer id, Usuario usuario, String nome, TipoMovimento tipo, Boolean padrao) {
 		super();
 		this.id = id;
 		this.usuario = usuario;
-		this.tipo = nome;
+		this.nome = nome;
+		this.tipo = tipo;
 		this.padrao = padrao;
 	}
 	// Getter and Setters
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 	public TipoMovimento getTipo() {
 		return tipo;
 	}

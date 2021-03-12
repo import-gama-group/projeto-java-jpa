@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import model.Conta.Tipo;
+import model.Conta.TipoConta;
 import model.PlanoConta.TipoMovimento;
 
 @Entity

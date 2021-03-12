@@ -22,18 +22,21 @@ public class Conta {
 	private Usuario usuario;
 	private Integer numero;
 	private Double saldo;
-	private Tipo tipo;
-	@OneToMany(mappedBy = "conta", cascade = CascadeType.PERSIST)
-	private List<Lancamento> lancamentosConta;
-	@OneToMany(mappedBy = "contaDestino", cascade = CascadeType.PERSIST)
-	private List<Lancamento> lancamentosContaDestino;
+	private TipoConta tipo;
+	/*
+	 * @OneToMany(mappedBy = "conta", cascade = CascadeType.PERSIST) private
+	 * List<Lancamento> lancamentosConta;
+	 * 
+	 * @OneToMany(mappedBy = "contaDestino", cascade = CascadeType.PERSIST) private
+	 * List<Lancamento> lancamentosContaDestino;
+	 */
 	
 	
 	public Conta() {
 		this(null, null, null, 0.0, null );
 	}
 	// Constructor
-	public Conta(Usuario user, Integer id, Integer numero, Double saldo, Tipo tipo) {
+	public Conta(Usuario user, Integer id, Integer numero, Double saldo, TipoConta tipo) {
 		this.id = id;
 		this.usuario = user;
 		this.numero = numero;
@@ -66,30 +69,27 @@ public class Conta {
 	public void setSaldo(Double saldo) {
 		this.saldo = saldo;
 	};	
-	public Tipo getTipo() {
+	public TipoConta getTipo() {
 		return tipo;
 	}
-	public void setTipo(Tipo tipo) {
+	public void setTipo(TipoConta tipo) {
 		this.tipo = tipo;
 	}
-	public List<Lancamento> getLancamentosConta() {
-		return lancamentosConta;
-	}
-	public void setLancamentosConta(List<Lancamento> lancamentosConta) {
-		this.lancamentosConta = lancamentosConta;
-	}
-	public List<Lancamento> getLancamentosContaDestino() {
-		return lancamentosContaDestino;
-	}
-	public void setLancamentosContaDestino(List<Lancamento> lancamentosContaDestino) {
-		this.lancamentosContaDestino = lancamentosContaDestino;
-	}
+
+	/*
+	 * public List<Lancamento> getLancamentosConta() { return lancamentosConta; }
+	 * public void setLancamentosConta(List<Lancamento> lancamentosConta) {
+	 * this.lancamentosConta = lancamentosConta; } public List<Lancamento>
+	 * getLancamentosContaDestino() { return lancamentosContaDestino; } public void
+	 * setLancamentosContaDestino(List<Lancamento> lancamentosContaDestino) {
+	 * this.lancamentosContaDestino = lancamentosContaDestino; }
+	 */
 	public void setNumero(Integer numero) {
 		this.numero = numero;
 	}
 
 	// ENUM
-	public enum Tipo {
+	public enum TipoConta {
 		BANCO, CREDITO
 	}
 }
