@@ -1,10 +1,14 @@
 package model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -16,12 +20,15 @@ public class PlanoConta {
 	private Integer id;
 	@ManyToOne 
 	private Usuario usuario;
+	//@ENUMARATION STRING
+	//  STRING NOME
 	private TipoMovimento tipo; 
 	private Boolean padrao;
-	
+	//@OneToMany(mappedBy = "plano", cascade = CascadeType.PERSIST)
+	//private List<Lancamento> lancamentos;
 	
 	public PlanoConta() {
-		this(null, null, null, null);
+		this(null, null, null, false);
 	}
 	// Constructor
 	public PlanoConta(Integer id, Usuario usuario, TipoMovimento nome, Boolean padrao) {
@@ -32,7 +39,6 @@ public class PlanoConta {
 		this.padrao = padrao;
 	}
 	// Getter and Setters
-	
 	public TipoMovimento getTipo() {
 		return tipo;
 	}

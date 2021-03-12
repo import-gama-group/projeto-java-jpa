@@ -87,6 +87,7 @@ public class Usuario {
 
 	public void setContas(List<Conta> contas) {
 		this.contas = contas;
-	}	
+	}
+	
 	
 }

@@ -30,6 +30,7 @@ public class UsuarioRepository extends AbstractRepository<Usuario> implements Re
 		usuario.setContas(contas);
 		
 		super.save(usuario);
+		
 		// Criando 3 planos de conta para o Usuario
 		List<PlanoConta> planos = new ArrayList<PlanoConta>();
 
@@ -40,18 +41,15 @@ public class UsuarioRepository extends AbstractRepository<Usuario> implements Re
 		
 		PlanoConta plano2 = new PlanoConta();
 		plano2.setUsuario(usuario);
-		plano2.setTipo(TipoMovimento.D);
-		plano2.setPadrao(true);		
+		plano2.setTipo(TipoMovimento.D);	
 		
 		PlanoConta plano3 = new PlanoConta();
 		plano3.setUsuario(usuario);
 		plano3.setTipo(TipoMovimento.TU);
-		plano3.setPadrao(true);
 		
 		PlanoConta plano4 = new PlanoConta();
 		plano4.setUsuario(usuario);
 		plano4.setTipo(TipoMovimento.TC);
-		plano4.setPadrao(true);
 		
 		planos.add(plano1);
 		planos.add(plano2);

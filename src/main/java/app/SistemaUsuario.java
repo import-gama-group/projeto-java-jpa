@@ -1,10 +1,17 @@
 package app;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import dao.ContaRepository;
+import dao.LancamentoRepository;
 import dao.PlanoContaRepository;
 import dao.UsuarioRepository;
+import model.Conta;
+import model.Lancamento;
+import model.PlanoConta;
+import model.PlanoConta.TipoMovimento;
 import model.Usuario;
 import utils.Formatador;
 
@@ -12,6 +19,7 @@ public class SistemaUsuario {
 	static PlanoContaRepository planoRepository = new PlanoContaRepository();
 	static UsuarioRepository repository = new UsuarioRepository();
 	static ContaRepository contaRepository = new ContaRepository();
+	static LancamentoRepository lancamentoRepository = new LancamentoRepository();
 	public static void main(String[] args) throws Exception {
 		
 		Usuario user1 = new Usuario();
@@ -40,6 +48,17 @@ public class SistemaUsuario {
 		user3.setPassword("novasenha");
 
 		repository.save(user3);
+		
+
+		Lancamento lancamento1 = new Lancamento();
+		lancamento1.setValor(100.00);
+		lancamento1.setTipoMov(TipoMovimento.D);
+		//lancamento1.setConta();
+		//lancamento1.setDate(LocalDate.now());
+		lancamentoRepository.save(lancamento1);
+		
+		
+		
 
 		//list();
 		/*

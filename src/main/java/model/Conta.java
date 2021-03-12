@@ -1,10 +1,14 @@
 package model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -19,6 +23,10 @@ public class Conta {
 	private Integer numero;
 	private Double saldo;
 	private Tipo tipo;
+	@OneToMany(mappedBy = "conta", cascade = CascadeType.PERSIST)
+	private List<Lancamento> lancamentosConta;
+	@OneToMany(mappedBy = "contaDestino", cascade = CascadeType.PERSIST)
+	private List<Lancamento> lancamentosContaDestino;
 	
 	
 	public Conta() {
@@ -57,13 +65,27 @@ public class Conta {
 	}
 	public void setSaldo(Double saldo) {
 		this.saldo = saldo;
-	};
-	
+	};	
 	public Tipo getTipo() {
 		return tipo;
 	}
 	public void setTipo(Tipo tipo) {
 		this.tipo = tipo;
+	}
+	public List<Lancamento> getLancamentosConta() {
+		return lancamentosConta;
+	}
+	public void setLancamentosConta(List<Lancamento> lancamentosConta) {
+		this.lancamentosConta = lancamentosConta;
+	}
+	public List<Lancamento> getLancamentosContaDestino() {
+		return lancamentosContaDestino;
+	}
+	public void setLancamentosContaDestino(List<Lancamento> lancamentosContaDestino) {
+		this.lancamentosContaDestino = lancamentosContaDestino;
+	}
+	public void setNumero(Integer numero) {
+		this.numero = numero;
 	}
 
 	// ENUM
