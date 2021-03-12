@@ -1,15 +1,10 @@
 package model;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,12 +16,9 @@ public class PlanoConta {
 	@ManyToOne 
 	private Usuario usuario;
 	private String nome;
-	//@ENUMARATION STRING
-	//  STRING NOME
+	//TODO @ENUMARATION STRING
 	private TipoMovimento tipo; 
 	private Boolean padrao;
-	//@OneToMany(mappedBy = "plano", cascade = CascadeType.PERSIST)
-	//private List<Lancamento> lancamentos;
 	
 	public PlanoConta() {
 		this(null, null, null, null, false);
