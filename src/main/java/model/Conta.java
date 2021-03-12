@@ -1,14 +1,13 @@
 package model;
 
-import java.util.List;
-
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
 
 @Entity
 @Table(name = "tab_conta")
@@ -20,6 +19,7 @@ public class Conta {
 	private Usuario usuario;
 	private Integer numero;
 	private Double saldo;
+	@Enumerated(EnumType.STRING)
 	private TipoConta tipo;	
 	
 	public Conta() {

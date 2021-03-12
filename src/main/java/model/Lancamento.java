@@ -3,6 +3,8 @@ package model;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,6 +24,7 @@ public class Lancamento {
 	private PlanoConta plano;
 	@ManyToOne
 	private Conta conta;
+	@Enumerated(EnumType.STRING)
 	private TipoMovimento tipoMov;
 	private String descricao;
 	private String login;
