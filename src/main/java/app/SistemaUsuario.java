@@ -1,62 +1,75 @@
 package app;
 
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.List;
+
+import dao.ContaRepository;
+import dao.LancamentoRepository;
+import dao.PlanoContaRepository;
 import dao.UsuarioRepository;
+import model.Conta;
+import model.Lancamento;
+import model.PlanoConta;
+import model.PlanoConta.TipoMovimento;
 import model.Usuario;
+import utils.Formatador;
 
 public class SistemaUsuario {
-	static void criarUsuario() {
+	static PlanoContaRepository planoRepository = new PlanoContaRepository();
+	static UsuarioRepository repository = new UsuarioRepository();
+	static ContaRepository contaRepository = new ContaRepository();
+	static LancamentoRepository lancamentoRepository = new LancamentoRepository();
+	public static void main(String[] args) throws Exception {
 		
-		//criar usuario
-		//contas
-		//planos de contas padrao
+		Usuario user1 = new Usuario();
+		user1.setName("Maycon Leite");;
+		user1.setCpf(Formatador.formatadorCpf("33468456515"));
+		user1.setLogin("mayconLeite");
+		user1.setPhone(Formatador.formatadorPhone("34654816123"));
+		user1.setPassword("123456");
+
+		repository.save(user1);
+
+		Usuario user2 = new Usuario();
+		user2.setName("Ricardo Montes");;
+		user2.setCpf(Formatador.formatadorCpf("89865623588"));
+		user2.setLogin("ricardo");
+		user2.setPhone(Formatador.formatadorPhone("12112456789"));
+		user2.setPassword("root");
+
+		repository.save(user2);
 		
-	}
-	
-	public static void main(String[] args) {
+		Usuario user3 = new Usuario();
+		user3.setName("Temporario");;
+		user3.setCpf(Formatador.formatadorCpf("89865623588"));
+		user3.setLogin("criativo");
+		user3.setPhone(Formatador.formatadorPhone("12112456789"));
+		user3.setPassword("novasenha");
+
+		repository.save(user3);
 		
-		UsuarioRepository repository = new UsuarioRepository();
-		
-		Usuario us = new Usuario();
-	/*	
-		us.setCpf("12345678912");
-		us.setLogin("123");
-		us.setName("Fulano");
-		us.setPassword("1234");
-		us.setPhone("99999999");*/
-		
-		Usuario u2 = new Usuario();
-		
-		u2.setCpf("154321646");
-		u2.setLogin("1325");
-		u2.setName("Beltrano");
-		u2.setPassword("18665");
-		u2.setPhone("912312135");
-			
-		
-		repository.delete(3);
-		repository.delete(4);
+
+		Lancamento lancamento1 = new Lancamento();
+		lancamento1.setValor(100.00);
+		lancamento1.setTipoMov(TipoMovimento.D);
+		//lancamento1.setConta();
+		//lancamento1.setDate(LocalDate.now());
+		lancamentoRepository.save(lancamento1);
 		
 		
 		
-		
-		
+
+		//list();
 		/*
-		repository.update(carro);
+		static void list() {
+		System.out.println("LISTANDO USUARIO");
 		
-		repository.delete(1);
+		List<Usuario> usuario = repository.list();
 		
-		List<Carro> carros = repository.list();
-		
-		if(carros!=null) {
-			for(Carro c: carros) {
-				System.out.println(c);
-			}
+		for(Usuario c: usuario) {
+			System.out.println(c);
 		}
-		
-		
-		Carro selecionado = repository.find(3);
-		
-		System.out.println("Selecionado: " + selecionado);
 		*/
 	}
 }

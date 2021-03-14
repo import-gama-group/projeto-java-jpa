@@ -1,12 +1,14 @@
 package model;
 
-import javax.persistence.Column;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
 
 @Entity
 @Table(name = "tab_usuario")
@@ -17,18 +19,17 @@ public class Usuario {
 	private String login;
 	private String password;
 	private String name;
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.PERSIST)
+	private List<PlanoConta> planos;
 	private String cpf;
 	private String phone;
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.PERSIST)
+	private List<Conta> contas;
 	
 	public Usuario() {
-		this.id = null;
-		this.login = null;
-		this.password = null;
-		this.name = null;
-		this.cpf = null;
-		this.phone = null;
+		this(null, null, null, null);
 	}
-	
+	// Constructor
 	public Usuario(Integer id, String login, String password, String name) {
 		super();
 		this.id = id;
@@ -36,15 +37,19 @@ public class Usuario {
 		this.password = password;
 		this.name = name;
 	}
-	
-	public Integer getId() {
-		return id;
+	// Getter and Setters
+	public List<PlanoConta> getPlanos() {
+		return planos;
 	}
-
+	public void setPlanos(List<PlanoConta> planos) {
+		this.planos = planos;
+	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
+	public Integer getId() {
+		return id;
+	}
 	public String getLogin() {
 		return login;
 	}
@@ -75,13 +80,14 @@ public class Usuario {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	
-	@Override
-	public String toString( ) {
-		StringBuilder sb = new StringBuilder();
-		
-		return "";
+
+	public List<Conta> getContas() {
+		return contas;
+	}
+
+	public void setContas(List<Conta> contas) {
+		this.contas = contas;
 	}
 	
-
+	
 }
